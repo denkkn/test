@@ -4,11 +4,11 @@ plugins {
 }
 
 android {
-    namespace = "com.system.timeup"
+    namespace = "com.tennt.timeup"
     compileSdk = 35
 
     defaultConfig {
-        applicationId = "com.system.timeup"
+        applicationId = "com.tennt.timeup"
         minSdk = 26
         targetSdk = 35
         versionCode = 200

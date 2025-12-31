@@ -50,6 +50,7 @@ jobs:
           SIGNING_KEY_ALIAS: ${{ secrets.SIGNING_KEY_ALIAS }}
           SIGNING_KEY_PASSWORD: ${{ secrets.SIGNING_KEY_PASSWORD }}
         run: |
+          ./gradlew clean --refresh-dependencies
           if [ "${{ github.ref_type }}" = "tag" ]; then
             echo "当前为标签触发，构建Release APK"
             ./gradlew assembleRelease
