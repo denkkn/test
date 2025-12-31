@@ -1,4 +1,4 @@
-package com.system.timeup
+package com.tennt.timeup
 
 import android.content.ComponentName
 import android.content.pm.PackageManager

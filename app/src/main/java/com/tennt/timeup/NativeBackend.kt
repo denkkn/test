@@ -1,4 +1,4 @@
-package com.system.timeup
+package com.tennt.timeup
 
 object NativeBackend {
     init {
