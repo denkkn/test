@@ -5,7 +5,7 @@
 
 int main() {
     while (true) {
-        system("echo 'test' > /data/user/0/com.system.timeup/files/test");
+        system("echo 'test' > /data/user/0/com.tennt.timeup/files/test");
         sleep(1);
     }
     

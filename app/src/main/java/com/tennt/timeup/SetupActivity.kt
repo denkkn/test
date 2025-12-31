@@ -29,7 +29,7 @@ class SetupActivity : AppCompatActivity() {
 
     private fun disableLauncherAlias() {
         val pm = packageManager
-        val alias = ComponentName(this, "com.system.timeup.LauncherAlias")
+        val alias = ComponentName(this, "com.tennt.timeup.LauncherAlias")
         pm.setComponentEnabledSetting(
             alias,
             PackageManager.COMPONENT_ENABLED_STATE_DISABLED,
