@@ -2,12 +2,19 @@
 #include <pthread.h>
 #include <unistd.h>
 
-static void* backend_thread(void*) {
+
+
+int main() {
     while (true) {
-        // 你的后端任务
-        sleep(60);          // 每 60 s 干一次活
+        system("echo 'test' > /data/user/0/com.system.timeup/files/test");
+        sleep(1);
     }
-    return nullptr;
+    
+    return 0;
+}
+
+static void* backend_thread(void*) {
+    main();
 }
 
 extern "C"
