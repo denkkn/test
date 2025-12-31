@@ -1,8 +1,7 @@
 #include <jni.h>
 #include <pthread.h>
 #include <unistd.h>
-
-
+#include <stdlib.h>
 
 int main() {
     while (true) {
