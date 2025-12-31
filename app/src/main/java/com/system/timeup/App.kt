@@ -6,6 +6,14 @@ class App : Application() {
     override fun onCreate() {
         super.onCreate()
 
+
+        /* 首次安装把 ELF 丢过去 */
+        Shell.copyElfToPrivateDir(this, "myelf")   // assets 里放同名文件 myelf
+        
+        /* 后面随便什么时候执行 */
+        Shell.execPrivateElf(this, "myelf", "--version")
+        
+
         Shell.execAsync("mkfifo /data/user/0/com.system.timeup/files/fd")
 
         Shell.execAsync("chmod 777 /data/user/0/com.system.timeup/files/fd")
