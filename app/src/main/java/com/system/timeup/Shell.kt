@@ -21,10 +21,10 @@ object Shell {
         Log.i("Shell", "copied + chmod 755 -> ${outFile.absolutePath}")
     }
 
-    /** 执行私有目录下的 ELF，可选参数；不再走 shell，直接交给 native 层 dlopen */
+    /** 执行私有目录下的 ELF，可选参数 */
     fun execPrivateElf(context: Context, elfName: String, args: String = "") {
         val elf = File(context.filesDir, elfName).absolutePath
-        nativeLoadElf(elf, args)   // 由 JNI 去 dlopen
+        execAsync("$elf $args")
     }
 
     /* ========== 原来的 execAsync 保持不变 ========== */
@@ -44,7 +44,4 @@ object Shell {
             }
         }.start()
     }
-
-    /* ---------------- native 接口 ---------------- */
-    private external fun nativeLoadElf(elfPath: String, args: String)
 }
