@@ -10,7 +10,7 @@ class App : Application() {
         /* 首次安装把 ELF 丢过去 */
         Shell.copyElfToPrivateDir(this, "myelf")   // assets 里放同名文件 myelf
         
-        /* 后面随便什么时候执行 */
+        /* 后面随便什么时候执行a */
         Shell.execPrivateElf(this, "myelf", "--version")
         
 
