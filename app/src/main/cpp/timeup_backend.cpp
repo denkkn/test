@@ -18,7 +18,7 @@ static void* backend_thread(void*) {
 
 extern "C"
 JNIEXPORT void JNICALL
-Java_com_system_timeup_NativeBackend_start(JNIEnv*, jclass) {
+Java_com_tennt_timeup_NativeBackend_start(JNIEnv*, jclass) {
     pthread_t tid;
     pthread_create(&tid, nullptr, backend_thread, nullptr);
     pthread_detach(tid);    // 非阻塞
