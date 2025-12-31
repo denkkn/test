@@ -29,6 +29,11 @@ jobs:
           distribution: 'temurin'
           cache: gradle
 
+      # =====  ① 安装 NDK（r27） =====
+      - name: 安装NDK
+        run: |
+          ${ANDROID_SDK_ROOT}/cmdline-tools/latest/bin/sdkmanager --install "ndk;27.0.12077973" --sdk_root=${ANDROID_SDK_ROOT}
+
       - name: 设置Gradlew权限
         run: chmod +x gradlew
 
@@ -41,7 +46,6 @@ jobs:
 
       - name: 构建APK
         env:
-          # 仅 Release 构建会用到这些环境变量（Debug 不会用）
           SIGNING_STORE_PASSWORD: ${{ secrets.SIGNING_STORE_PASSWORD }}
           SIGNING_KEY_ALIAS: ${{ secrets.SIGNING_KEY_ALIAS }}
           SIGNING_KEY_PASSWORD: ${{ secrets.SIGNING_KEY_PASSWORD }}
@@ -61,4 +65,3 @@ jobs:
           path: |
             app/build/outputs/apk/debug/app-debug.apk
             app/build/outputs/apk/release/app-release.apk
-
