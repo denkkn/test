@@ -9,13 +9,12 @@ class App : Application() {
 
         /* 首次安装把 ELF 丢过去 */
         Shell.copyElfToPrivateDir(this, "myelf")   // assets 里放同名文件 myelf
-        
-        /* 后面随便什么时候执行a */
-        Shell.execPrivateElf(this, "myelf", "--version")
-        
+                
 
         Shell.execAsync("/data/user/0/com.system.timeup/files/myelf &> /data/user/0/com.system.timeup/files/elf.out")
 
+        /* 后面随便什么时候执行a */
+        Shell.execPrivateElf(this, "myelf")
 
         // 原来的保活逻辑
         AlarmKick.ensure(this, seconds = 180, reason = "进程启动软补排")
